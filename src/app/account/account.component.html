@@ -1,0 +1,30 @@
+<h4 class="page-header">Account</h4>
+<div>
+<div id="loginBox" class="cl-md-7">
+<div class="panel panel-default">
+<div class="panel-heading">
+  <div class="panel-title text-center">Login</div>
+</div>
+<div class="panel-body">
+  <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)" id="form" class="form-horizontal">
+<div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input type="text" class="form-control" name="user" ngModel placeholder="Username">
+</div>
+<div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <input type="password" class="form-control" name="password" ngModel placeholder="Password">
+  </div>
+ <div>
+
+    <button class="btn btn-primary pull-right" type="submit"><i class="glyphicon glyphicon-log-in"></i> Login</button>
+
+ </div>
+  </form>
+</div>
+<div class="panel-footer">
+  {{message}}
+</div>
+</div>
+</div>
+</div>

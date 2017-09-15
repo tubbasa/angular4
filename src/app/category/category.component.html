@@ -1,0 +1,12 @@
+<h4 class="page-header">Categories</h4>
+<div class="list-group">
+  <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="products" class="list-group-item" (click)="onSelect()">All Products</a>
+  <a class="list-group-item" routerLinkActive="active" *ngFor="let item of category" routerLink="products/{{item.seoUrl}}" (click)="onSelect(item)">{{item.categoryName}}</a>
+</div>
+
+<!--
+[routerLinkActiveOptions]={exact:true} : linkin içinde product gördüğünde değil linkte sadece products
+ olduğunda git anlamı taşır
+
+
+ -->

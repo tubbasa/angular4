@@ -1,0 +1,36 @@
+<h4 class="page-header">
+  ShippingDetails
+</h4>
+<form #shippingForm="ngForm" (ngSubmit)="checkout(shippingForm)">
+  <div class="form-group" [class.has-error]="fullName.invalid&&fullName.dirty">
+    <label class="control-label" for="fullName">Full Name</label>
+    <input (change)="isDirty=true" class="form-control" #fullName="ngModel" id="fullName" name="fullName" [(ngModel)]="model.fullName" required>
+ <span *ngIf="fullName.invalid&&fullName.dirty" class="help-block">Full Name is required..</span>
+  </div>
+  <div class="form-group" [class.has-error]="adress.invalid&&adress.dirty">
+    <label class="control-label" for="adress">Full Name</label>
+    <textarea (change)="isDirty=true" rows="3" class="form-control" #adress="ngModel" id="adress" name="adress" [(ngModel)]="model.adress" required minlength="10"></textarea>
+    <span *ngIf="adress.invalid&&adress.dirty" class="help-block">Address is required and must be minimum 10 characters..</span>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error':city.value==-1&&city.dirty}">
+    <label class="control-label" for="city">City</label>
+    <select #city="ngModel" name="cityId" id="cityId" required class="form-control" [(ngModel)]="model.cityId">
+      <option value="-1" selected>
+      --Select--
+      </option>
+      <option *ngFor="let item of cities" [value]="item.id">
+        {{item.name}} 
+      </option>
+    </select>
+    <span *ngIf="city.value==-1&&city.dirty" class="help-block">
+   City is required. 
+    </span>
+      </div> 
+
+  <div class="checkbox" >
+       <input type="checkbox"  id="isGift" name="isGift" [(ngModel)]="model.isGift" > Is Gift?
+  </div>
+
+  <button type="submit" class="btn btn-primary" [attr.disable]="shippingForm.invalid">Complete Shopiing</button>
+</form>
